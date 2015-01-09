@@ -40,6 +40,14 @@
 		<link rel="icon" href="favicon.ico" type="image/x-icon" />
 		<link href="http://fonts.googleapis.com/css?family=Kreon" rel="stylesheet" type="text/css" />
 		<link href="http://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet" type="text/css" />
+		<script type="text/javascript">
+
+			function popup(){
+			  cuteLittleWindow = window.open("popup.php", "littleWindow", "location=no,width=800,height=500"); 
+			}
+
+		</script>
+
 	</head>
 	<body>
 		<?php
@@ -68,6 +76,12 @@
 			<h1>
 				Rooster
 			</h1>
+		</div>
+		
+		<div id="info">
+			<p id="tabr">
+				<a href="javascript:popup()">Info</a>
+			</p>
 		</div>
 		
 		<div class="head1">
