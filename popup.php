@@ -53,7 +53,7 @@
 				if($stab==2)
 					{
 					/* contact */
-					echo "<p>Voor opmering of verbeterpunten<br>Mail dan naar: <a href='mailto:joostsijm@gmail.com'>joostsijm@gmail.com</a>.</p>";
+					echo "<p>Als je opmerking of verbeterpunten heb<br>Kan je die mailen naar: <a href='mailto:joostsijm@gmail.com'>joostsijm@gmail.com</a>.</p>";
 					}
 			?>
 		</div>
