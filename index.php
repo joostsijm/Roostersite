@@ -47,29 +47,53 @@
 			}
 
 		</script>
+		
 
 	</head>
 	<body>
 		<?php
 			date_default_timezone_set('Europe/Amsterdam');
 			$date=date("W");
+
 			if(isset($_POST['week']))
 				{
-				$stab=$_POST['week'];
-				$date=date("W") + $_POST['week'];
-				if($date > 52)
-					{
-						$date=$date - 52;
-					}
-				if($date < 10)
-					{
-						$date="0" . $date;
-					}
+					$stab=$_POST['week'];
+					$date=date("W") + $_POST['week'];
+					if($date > 52)
+						{
+							$date=$date - 52;
+						}
+					if($date < 10)
+						{
+							$date="0" . $date;
+						}
+				setcookie("date", $date, time()+1800);
 				}
 			else
 				{
 				$stab="";
+				setcookie("date", $date, time()+1800);
 				}
+				
+			if(isset($_POST['klas']))
+				{
+					$klas=$_POST['klas'];
+					if($klas < 10)
+						{
+							$klas="0" . $date;
+						}
+					setcookie("klas", $klas, time()+1800);
+				}
+			if(isset($_COOKIE['klas']))
+				{
+					$klas=$_COOKIE['klas'];
+				}
+			else
+				{
+					$klas="01";
+					setcookie("klas", $klas, time()+1800);
+				}
+			
 		?>
 		
 		<div id="logo">
@@ -79,9 +103,22 @@
 		</div>
 		
 		<div id="info">
-			<p id="tabr">
-				<a href="javascript:popup()">Info</a>
-			</p>
+			<ul id="tabnavr">
+				<li id="tabr">
+					<a href="javascript:popup()">Info</a>
+				</li>
+			</ul>
+			<ul id="tabnavr">
+				<li id="tabr">
+					<form id='klas' name='klas' method='post'>
+						<label for='klas'>Klas</label>
+							<select name='klas' id='klas' onchange='this.form.submit()'>";
+								<option value=1>AD2H</option><option value="2">AD3A</option><option value="3">AD4A</option><option value="4">AM1A</option><option value="5">AM1B</option><option value="6">AM2A</option><option value="7">AM2B</option><option value="8">DS1A</option><option value="9">DS2A</option><option value="10">DS3A</option><option value="11">DS4A</option><option value="12">FB1A</option><option value="13">FB1B</option><option value="14">FB1C</option><option value="15">FM2A</option><option value="16">FM2B</option><option value="17">IB1D</option><option value="18">IB2D</option><option value="19">IO1A</option><option value="20">IO2A</option><option value="21">IO3A</option><option value="22">IT4A</option><option value="23">JD1A</option><option value="24">MB1A</option><option value="25">MB2A</option><option value="26">MC1A</option><option value="27">MC1B</option><option value="28">MC2A</option><option value="29">MC3A</option><option value="30">MT1A</option><option value="31">MT2A</option><option value="32">SE1A</option><option value="33">SE2A</option>
+							</select>
+							<noscript><input type="submit" value="Submit"></noscript>
+					</form>
+				</li>
+			</ul>
 		</div>
 		
 		<div class="head1">
@@ -96,8 +133,8 @@
 			</form>
 		</div>
 		
-		<?php 
-		echo "<iframe src='http://rooster.horizoncollege.nl/rstr/ECO/HRN/Roosters/" . $date . "/c/c00019.htm' frameborder='0' width='100%' height='800px'>Rooster</iframe>";
+		<?php
+		echo "<iframe src='http://rooster.horizoncollege.nl/rstr/ECO/HRN/Roosters/" . $date . "/c/c000" . $klas . ".htm' frameborder='0' width='100%' height='800px'>Rooster</iframe>";
 		?>
 		
 	</body>
