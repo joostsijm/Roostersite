@@ -11,7 +11,16 @@
 		<link href="http://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
-		
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-57154028-2', 'auto');
+		  ga('send', 'pageview');
+
+		</script>
 		<?php
 			date_default_timezone_set('Europe/Amsterdam');
 			$date=date("W");
@@ -45,7 +54,7 @@
 				if($stab==1)
 					{
 					/* info */
-					echo "	<p>Deze site, Gemaakt door Joost Sijm,<br>Is er om op een snelle manier het rooster van de klas IO1A van het Horizoncollege te kunnen bekijken</p>
+					echo "	<p>Deze site, Gemaakt door Joost Sijm.<br>Is er om op een snelle manier het rooster van de klas IO1A van het Horizoncollege te kunnen bekijken</p>
 								<p>Er zijn verder geen plannen voor uitbreiding van deze website</p>
 								<p>Als je interesse heb in de code achter deze site.<br>kan je deze vind op <a href='https://github.com/joostsijm/Roostersite'>Github</a></p>";
 
