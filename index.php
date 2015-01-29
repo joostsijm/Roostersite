@@ -40,11 +40,14 @@
 		<link rel="icon" href="favicon.ico" type="image/x-icon" />
 		<link href="http://fonts.googleapis.com/css?family=Kreon" rel="stylesheet" type="text/css" />
 		<link href="http://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet" type="text/css" />
+<<<<<<< HEAD
 		<script type="text/javascript">
 			function popup(){
 			  cuteLittleWindow = window.open("popup.php", "littleWindow", "location=no,width=800,height=500"); 
 			}
 		</script>
+=======
+>>>>>>> parent of 76b7112... Info toegevoegd
 	</head>
 	<body>
 		<script>
@@ -173,6 +176,7 @@
 				</form>
 			</div>
 		</div>
+<<<<<<< HEAD
 	
 		<div id="info">
 			<ul class="tabnavrklas">
@@ -197,6 +201,9 @@
 				</li>
 			</ul>
 		</div>
+=======
+		
+>>>>>>> parent of 76b7112... Info toegevoegd
 		<div class="head1">
 			<form id='rooster' name='rooster' method='post'>
 				<ul id="tabnavr">
