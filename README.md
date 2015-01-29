@@ -1,2 +1,2 @@
 # Roostersite
-Rooster van IO1A Horizon College Hoorn
+Rooste van IO1A Horizon College Hoorn
