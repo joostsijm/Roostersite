@@ -41,11 +41,14 @@
 		<link href="http://fonts.googleapis.com/css?family=Kreon" rel="stylesheet" type="text/css" />
 		<link href="http://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet" type="text/css" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 		<script type="text/javascript">
 			function popup(){
 			  cuteLittleWindow = window.open("popup.php", "littleWindow", "location=no,width=800,height=500"); 
 			}
 		</script>
+=======
+>>>>>>> parent of 76b7112... Info toegevoegd
 =======
 >>>>>>> parent of 76b7112... Info toegevoegd
 	</head>
@@ -177,6 +180,7 @@
 			</div>
 		</div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
 		<div id="info">
 			<ul class="tabnavrklas">
@@ -201,6 +205,9 @@
 				</li>
 			</ul>
 		</div>
+=======
+		
+>>>>>>> parent of 76b7112... Info toegevoegd
 =======
 		
 >>>>>>> parent of 76b7112... Info toegevoegd
