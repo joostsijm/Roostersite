@@ -1,0 +1,35 @@
+<?php
+if ($klas == '01') { $sklas = "";}
+if ($klas == '02') { $sklas = "";}
+if ($klas == '03') { $sklas = "";}
+if ($klas == '04') { $sklas = "";}
+if ($klas == '05') { $sklas = "";}
+if ($klas == '06') { $sklas = "";}
+if ($klas == '07') { $sklas = "";}
+if ($klas == '08') { $sklas = "";}
+if ($klas == '09') { $sklas = "";}
+if ($klas == '10') { $sklas = "";}
+if ($klas == '11') { $sklas = "";}
+if ($klas == '12') { $sklas = "";}
+if ($klas == '13') { $sklas = "";}
+if ($klas == '14') { $sklas = "";}
+if ($klas == '15') { $sklas = "";}
+if ($klas == '16') { $sklas = "";}
+if ($klas == '17') { $sklas = "";}
+if ($klas == '18') { $sklas = "";}
+if ($klas == '19') { $sklas = "";}
+if ($klas == '20') { $sklas = "";}
+if ($klas == '21') { $sklas = "";}
+if ($klas == '22') { $sklas = "";}
+if ($klas == '23') { $sklas = "";}
+if ($klas == '24') { $sklas = "";}
+if ($klas == '25') { $sklas = "";}
+if ($klas == '26') { $sklas = "";}
+if ($klas == '27') { $sklas = "";}
+if ($klas == '28') { $sklas = "";}
+if ($klas == '29') { $sklas = "";}
+if ($klas == '30') { $sklas = "";}
+if ($klas == '31') { $sklas = "";}
+if ($klas == '32') { $sklas = "";}
+if ($klas == '33') { $sklas = "";}
+?>

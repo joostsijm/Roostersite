@@ -40,17 +40,11 @@
 		<link rel="icon" href="favicon.ico" type="image/x-icon" />
 		<link href="http://fonts.googleapis.com/css?family=Kreon" rel="stylesheet" type="text/css" />
 		<link href="http://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet" type="text/css" />
-<<<<<<< HEAD
-<<<<<<< HEAD
 		<script type="text/javascript">
 			function popup(){
 			  cuteLittleWindow = window.open("popup.php", "littleWindow", "location=no,width=800,height=500"); 
 			}
 		</script>
-=======
->>>>>>> parent of 76b7112... Info toegevoegd
-=======
->>>>>>> parent of 76b7112... Info toegevoegd
 	</head>
 	<body>
 		<script>
@@ -67,10 +61,19 @@
 			date_default_timezone_set('Europe/Amsterdam');
 			$date=date("W");
 
-			if(isset($_POST['week']))
+			if(isset($_POST['home']))
 				{
-					$stab=$_POST['week'];
-					$date=date("W") + $_POST['week'];
+					unset($_COOKIE['lokaat']);
+					unset($_COOKIE['afdeling']);
+					unset($_COOKIE['klas']);
+					$_GET['klas']=-666;
+					$_POST['afdeling']=-666;
+				}
+			
+			if(isset($_GET['week']))
+				{
+					$stab=$_GET['week'];
+					$date=date("W") + $_GET['week'];
 					if($date > 52)
 						{
 							$date=$date - 52;
@@ -79,7 +82,7 @@
 						{
 							$date="0" . $date;
 						}
-				setcookie("date", $date, time()+60*60*24*30);
+				setcookie("date", $date, time()+60*60*24*30*12);
 				}
 			else
 				{
@@ -88,10 +91,10 @@
 				
 			if(isset($_COOKIE['week']))
 				{
-					if(isset($_POST['week']))
+					if(isset($_GET['week']))
 						{
-							$stab=$_POST['week'];
-							$date=date("W") + $_POST['week'];
+							$stab=$_GET['week'];
+							$date=date("W") + $_GET['week'];
 							if($date > 52)
 								{
 									$date=$date - 52;
@@ -100,50 +103,48 @@
 								{
 									$date="0" . $date;
 								}
-							setcookie("date", $date, time()+60*60*24*30);	
+							setcookie("date", $date, time()+60*60*24*30*12);	
 						}
 					else
 						{
-							$klas=$_COOKIE['klas'];
+							$date=$_COOKIE['week'];
 						}
-				}
-			else
-				{
-					setcookie("date", $date, time()+60*60*24*30);
 				}
 				
-			if(isset($_POST['klas']))
+			if(isset($_GET['klas']))
 				{
-					$klas=$_POST['klas'];
-					/* setcookie("klas", $klas, time()+60*60*24*30); */
-				}
-			if(isset($_COOKIE['klas']))
-				{
-					if(isset($_POST['klas']))
-						{
-							$klas=$_POST['klas'];
-							setcookie("klas", $klas, time()+60*60*24*30);
-						}
-					else
-						{
-							$klas=$_COOKIE['klas'];
-						}
+					$klas=$_GET['klas'];
 				}
 			else
 				{
 					$klas="-666";
 				}
+			if(isset($_COOKIE['klas']))
+				{
+					if(isset($_GET['klas']))
+						{
+							$klas=$_GET['klas'];
+						}
+					else
+						{
+							$klas=$_COOKIE['klas'];
+						}
+				}
 				
 			if(isset($_POST['lokaat']))
 				{
 					$lokaat=$_POST['lokaat'];
+					unset($_COOKIE['afdeling']);
+				}
+			else
+				{
+					$lokaat="-666";
 				}
 			if(isset($_COOKIE['lokaat']))
 				{
 					if(isset($_POST['lokaat']))
 						{
 							$lokaat=$_POST['lokaat'];
-							setcookie("lokaat", $lokaat, time()+60*60*24*30);
 							unset($_COOKIE['klas']);
 							$klas="-666";
 						}
@@ -152,70 +153,128 @@
 							$lokaat=$_COOKIE['lokaat'];					
 						}
 				}
+				
+			if(isset($_POST['afdeling']))
+				{
+					setcookie("afdeling", $_POST['afdeling'], time()+60*60*24*30*12);
+					$afdeling=$_POST['afdeling'];
+				}
 			else
 				{
-					$lokaat="hrn";
+					$afdeling="-666";
 				}
+			if(isset($_COOKIE['afdeling']))
+				{
+					if(isset($_POST['afdeling']))
+						{
+							$afdeling=$_POST['afdeling'];
+							unset($_COOKIE['klas']);
+							$klas="-666";
+						}
+					else
+						{
+							$afdeling=$_COOKIE['afdeling'];					
+						}
+				}
+			if($lokaat !=-666 )
+			{setcookie("lokaat", $lokaat, time()+60*60*24*30*12);}
+			if($afdeling !=-666)
+			{setcookie("afdeling", $afdeling, time()+60*60*24*30*12);}
+			if($klas !=-666)
+			{setcookie("klas", $klas, time()+60*60*24*30*12);}
 				
-			setcookie("lokaat", $lokaat, time()+60*60*24*30);
-			setcookie("klas", $klas, time()+60*60*24*30);
-				
-			if(isset($klas))
+			if($afdeling  !=-666 and $lokaat !=-666)
 				{
 					$sklas = "";
-					include("/eco/" . $lokaat . "/head.php");
+					include("/horizon/" . $lokaat . "/" . $afdeling . "/head.php");
 				}
 		?>	
-		<div class="h1"><!-- iets anders dan h1 gebruiken -->
-			<div class="logo" ><a href="http://localhost:8080/Roostersite/" >Rooster</a></div>
-			<div class="logo"><p style="font-size: 0.25em; padding-left: 200px; text-align: left; padding-top: 25px;"><?php echo $sklas ?></p></div>
-			<div class="logo">
-				<form style="font-size: 0.2em; padding-left: 200px; text-align: right; padding-top: 45px;" name='lokaat' method='post'>
-					<label for='lokaat'></label>
-					<select name='lokaat' id='lokaat' onchange='this.form.submit()'>
+		<div>
+			<div class="logo" >
+				<form  action="index.php" id='home' name='home' method='post'>	
+					<button class="logo "type='submit' value='1' name='home'>Rooster</button>
+				</form>
+			<!--<a href="http://localhost:8080/Roostersite/" >Rooster</a>-->
+			</div>
+			<div class="logo"><p style="font-size: 0.25em; margin: 0 0 0 200px; text-align: left;"><?php if(isset($sklas)) echo $sklas; ?></p></div>
+			<div style="font-size:0.2em; margin:20px 0 0 200px;" class="logo">
+				<form name='lokaat' method='post'>
+					<select style="width:120px" name='lokaat' id='drop' onchange='this.form.submit()'>
+						<?php
+							if($lokaat==-666)
+								{
+									?>
+										<option <?php if ($lokaat == '-666') { ?>selected <?php }; ?>value="-666">locatie</option>
+									<?php
+								}
+						?>
 						<option <?php if ($lokaat == 'hrn') { ?>selected <?php }; ?>value="hrn">Hoorn</option>
 						<option <?php if ($lokaat == 'alk') { ?>selected <?php }; ?>value="alk">Alkmaar</option>
+						<option <?php if ($lokaat == 'hee') { ?>selected <?php }; ?>value="hee">Heerhugowaard</option>
+						<option <?php if ($lokaat == 'pur') { ?>selected <?php }; ?>value="pur">Purmerend</option>
+					</select>
+				</form>
+			</div>
+			<div style="font-size:0.2em; margin:41px 0 0 200px;" class="logo">
+				<form name='lokaat' method='post'>
+					<select style="width:120px" name='afdeling' id='drop' onchange='this.form.submit()'>
+						<?php
+							if($lokaat==-666)
+								{
+									?>
+										<option <?php if ($afdeling == '-666') { ?>selected <?php }; ?>value="-666">afdeling</option>
+									<?php
+								}
+							else
+								{
+									if($afdeling==-666)
+										{
+											?>
+												<option <?php if ($afdeling == '-666') { ?>selected <?php }; ?>value="-666">afdeling</option>
+											<?php
+										}
+									include("/horizon/" . $lokaat . "/afdelingen.php");
+								}
+						?>
 					</select>
 				</form>
 			</div>
 		</div>
-<<<<<<< HEAD
-<<<<<<< HEAD
 	
 		<div id="info">
 			<ul class="tabnavrklas">
-				<li class="tabrklas">
+				<li>
 					<a href="javascript:popup()">Info</a><!-- week <?php echo $date ?> klas <?php echo $klas ?> tab <?php echo $stab ?> -->
 				</li>
 			</ul>
 			<ul class="tabnavrklas">
-				<li class="tabrklas">
-					<form name='klas' method='post'>
+				<li>
+					<form name='klas' method='get'>
 						<label for='klas'>Klas:</label>
-						<select name='klas' id='klas' onchange='this.form.submit()'>
+						<select style="width:80px" name='klas' id='drop' onchange='this.form.submit()'>
 							<?php
 							if ($klas ==-666)
 								{
 									echo "<option selected value='0'>    </option>";
 								}
-							include("/eco/" . $lokaat . "/klas.php"); 
+							if($lokaat  !=-666)
+								{
+									if($afdeling !=-666)
+										{
+											include("/horizon/" . $lokaat . "/" . $afdeling . "/klas.php"); 
+										}
+								}
 							?>
 						</select>
 					</form>
 				</li>
 			</ul>
 		</div>
-=======
-		
->>>>>>> parent of 76b7112... Info toegevoegd
-=======
-		
->>>>>>> parent of 76b7112... Info toegevoegd
-		<div class="head1">
-			<form id='rooster' name='rooster' method='post'>
+		<div class="tabs">
+			<form id='rooster' name='rooster' method='get'>
 				<ul id="tabnavr">
 					<?php
-						if ($klas >= "0")
+						if ($klas != -666)
 							{
 								?>
 								<li class="tabr<?php if($stab==-1){echo "s";}?>">	<button type='submit' value='-1' 	name='week'>Vorige week		</button></li>
@@ -232,16 +291,32 @@
 					?>
 				</ul>
 			</form>
-		</div><?php
-		
-			if ($klas ==-666)
-				{
-				echo "<div class='frame'>Kies hier je klas &#8593;</div>";
-				}
-			else
-				{
-				include("/eco/" . $lokaat . "/rooster.php"); 
-				}
+		</div>
+		<div class="frame">
+			<?php
+				if ($klas !=-666)
+					{
+					include("/horizon/" . $lokaat . "/" . $afdeling . "/rooster.php"); 
+					}
+				else
+					{
+						if($lokaat  !=-666)
+							{
+								if($afdeling !=-666)
+									{
+										echo "<div class='frame1'>Kies hier je klas &#8593;</div>";
+									}
+								else
+									{
+										echo "<div class='frame2'>Kies hier je afdeling &#8593;</div>";
+									}
+							}
+						else
+							{
+								echo "<div class='frame2'>Kies hier je locatie &#8593;</div>";
+							}
+					}
 			?>
+		</div>
 	</body>
 </html>
