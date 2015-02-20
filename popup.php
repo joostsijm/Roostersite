@@ -7,7 +7,7 @@
 		<link rel=stylesheet href="rooster.css">
 		<link rel=stylesheet href="popup.css">
 		<link rel="icon" href="favicon.ico" type="image/x-icon" />
-		<link href="http://fonts.googleapis.com/css?family=Kreon" rel="stylesheet" type="text/css" />
+		<link href='http://fonts.googleapis.com/css?family=Kreon:700' rel='stylesheet' type='text/css'>
 		<link href="http://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
