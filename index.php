@@ -192,14 +192,14 @@
 		<div>
 			<div class="logo" >
 				<form  action="index.php" id='home' name='home' method='post'>	
-					<button class="logo "type='submit' value='1' name='home'>Rooster</button>
+					<button class="logo" type='submit' value='1' name='home'>Rooster</button>
 				</form>
 			<!--<a href="http://localhost:8080/Roostersite/" >Rooster</a>-->
 			</div>
 			<div class="logo"><p style="font-size: 0.25em; margin: 0 0 0 200px; text-align: left;"><?php if(isset($sklas)) echo $sklas; ?></p></div>
 			<div style="font-size:0.2em; margin:20px 0 0 200px;" class="logo">
 				<form name='lokaat' method='post'>
-					<select style="width:120px" name='lokaat' id='drop' onchange='this.form.submit()'>
+					<select style="width:120px" name='lokaat' class='drop' onchange='this.form.submit()'>
 						<?php
 							if($lokaat==-666)
 								{
@@ -217,7 +217,7 @@
 			</div>
 			<div style="font-size:0.2em; margin:41px 0 0 200px;" class="logo">
 				<form name='lokaat' method='post'>
-					<select style="width:120px" name='afdeling' id='drop' onchange='this.form.submit()'>
+					<select style="width:120px" name='afdeling' class='drop' onchange='this.form.submit()'>
 						<?php
 							if($lokaat==-666)
 								{
@@ -251,11 +251,11 @@
 				<li>
 					<form name='klas' method='get'>
 						<label for='klas'>Klas:</label>
-						<select style="width:80px" name='klas' id='drop' onchange='this.form.submit()'>
+						<select style="width:80px" id="klas" name='klas' class='drop' onchange='this.form.submit()'>
 							<?php
 							if ($klas ==-666)
 								{
-									echo "<option selected value='0'>    </option>";
+									echo "<option selected value='0'>Klas</option>";
 								}
 							if($lokaat  !=-666)
 								{
@@ -277,11 +277,11 @@
 						if ($klas != -666)
 							{
 								?>
-								<li class="tabr<?php if($stab==-1){echo "s";}?>">	<button type='submit' value='-1' 	name='week'>Vorige week		</button></li>
-								<li class="tabr<?php if($stab==0){echo "s";}?>">	<button type='submit' value='0' 	name='week'>Deze week			</button></li>
-								<li class="tabr<?php if($stab==1){echo "s";}?>">	<button type='submit' value='1' 	name='week'>Volgende week	</button></li>
-								<li class="tabr<?php if($stab==2){echo "s";}?>">	<button type='submit' value='2' 	name='week'>Over 2 weken		</button></li>
-								<li class="tabr<?php if($stab==3){echo "s";}?>">	<button type='submit' value='3' 	name='week'>Over 3 weken		</button></li>
+								<li class="tabr<?php if($stab==-1){echo "s";}?>">	<button type='submit' value='-1' 	name='week'>Vorige week			</button></li>
+								<li class="tabr<?php if($stab==0){echo "s";}?>">		<button type='submit' value='0' 	name='week'>Deze week			</button></li>
+								<li class="tabr<?php if($stab==1){echo "s";}?>">		<button type='submit' value='1' 	name='week'>Volgende week		</button></li>
+								<li class="tabr<?php if($stab==2){echo "s";}?>">		<button type='submit' value='2' 	name='week'>Over 2 weken		</button></li>
+								<li class="tabr<?php if($stab==3){echo "s";}?>">		<button type='submit' value='3' 	name='week'>Over 3 weken		</button></li>
 								<?php 
 							}
 						else

@@ -52,17 +52,18 @@
 		<div style="padding:5% 0% 30% 2.5%">
 			<?php 
 				if($stab==1)
-					{
 					/* info */
-					echo "	<p>Deze site, Gemaakt door Joost Sijm.<br>Is er om op een snelle manier het rooster van de klas IO1A van het Horizoncollege te kunnen bekijken</p>
-								<p>Er zijn verder geen plannen voor uitbreiding van deze website</p>
-								<p>Als je interesse heb in de code achter deze site.<br>kan je deze vind op <a href='https://github.com/joostsijm/Roostersite'>Github</a></p>";
-
-					}
+					?>
+						<p>Deze site, Gemaakt door Joost Sijm.<br>Is er om op een snelle manier het rooster van de klas IO1A van het Horizoncollege te kunnen bekijken</p>
+						<p>Er zijn verder geen plannen voor uitbreiding van deze website</p>
+						<p>Als je interesse heb in de code achter deze site.<br>kan je deze vind op <a href='https://github.com/joostsijm/Roostersite'>Github</a></p>
+					<?php
 				if($stab==2)
-					{
-					/* contact */
-					echo "<p>Als je opmerking of verbeterpunten heb<br>Kan je die mailen naar: <a href='mailto:joostsijm@gmail.com'>joostsijm@gmail.com</a>.</p>";
+				{
+						/* contact */
+					?>
+						<p>Als je opmerking of verbeterpunten heb<br>Kan je die mailen naar: <a href='mailto:joostsijm@gmail.com'>joostsijm@gmail.com</a>.</p>
+					<?php
 					}
 			?>
 		</div>
