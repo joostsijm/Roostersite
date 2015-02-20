@@ -196,6 +196,7 @@
 				</form>
 			<!--<a href="http://localhost:8080/Roostersite/" >Rooster</a>-->
 			</div>
+			<div class=feed><a href='mailto:joostsijm@gmail.com'>Feedback</a></div> 
 			<div class="logo"><p style="font-size: 0.25em; margin: 0 0 0 200px; text-align: left;"><?php if(isset($sklas)) echo $sklas; ?></p></div>
 			<div style="font-size:0.2em; margin:20px 0 0 200px;" class="logo">
 				<form name='lokaat' method='post'>

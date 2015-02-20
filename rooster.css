@@ -83,18 +83,30 @@ body
 
 #info
 {
+	margin:-4px 0 0;
 	background-color:#72DDBE;
 	border:1px solid #000;
 	border-radius:0 0 0 13px;
 	border-right:0;
-	box-shadow:0 -3px 5px -3px rgba(0,0,0,0.75);
 	float:right;
 	font-size:1em;
-	margin:-4px 0 0;
-	padding:2px 2%;
 }
-
-.frame, #info, button,.frame1, .frame2{
+.feed{
+	margin:200px 0 0 100%;
+	background-color:#72DDBE;
+	border: 1px solid black;
+	border-top: 0;
+	border-radius:0 0 13px 13px;
+	position: absolute;
+	transform: rotate(90deg);
+	transform-origin: left top 0;
+}
+.feed,#info{
+padding:2px 2%;
+box-shadow:  inset 0px 15px 5px -10px rgba(50, 50, 50, 0.75);
+box-shadow:0 -3px 5px -3px rgba(0,0,0,0.75);
+}
+.frame, #info, button,.frame1, .frame2,.feed{
 	font-family:'Ubuntu Condensed' , 'Sans-Serif';
 }
 
