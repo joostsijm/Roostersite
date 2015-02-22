@@ -29,23 +29,22 @@ ul#tabnavr li,ul.tabnavrklas li
 
 .tabrs,ul#tabnavr .tabr:hover
 {
-	background-color:#FFF;
-	border-bottom:2px solid #FFF;
-	box-shadow:0 -3px 5px -3px rgba(0,0,0,0.75);
+
+	background-color:white;
+	box-shadow: inset 13px 13px 0px 0px  #FFFFFF;
+	border-bottom:1px solid #fff;
+	box-shadow:0 -3px 5px -3px rgba(0,0,0,0.75),
+	inset 0px 100px 15px -15px rgba(0,0,0,0.35);
 	padding:1px 1%;
 	position:relative;
-	top:1px;
-}
-
-.tabr
-{
-	border-bottom:1px solid #000;
+	top:2px;
 }
 
 .tabr
 {
 	background-color:#72DDBE;
 	padding:3px 1%;
+	border-bottom:1px solid #000;
 }
 
 button
@@ -60,6 +59,16 @@ button
 	padding-top:75px;
 }
 
+.shad
+{
+	position: absolute;
+	width: 99%;
+	box-shadow: 0px 11px 15px -5px rgba(0, 0, 0, 0.75);
+	padding: 10px;
+	margin-top: -21px;
+	pointer-events: none
+}
+
 .logo
 {
 	font-size:60px;
@@ -69,10 +78,7 @@ button
 	padding-top: 0px;
 	color:#FFF;
 	text-decoration:none;
-}
-.logo{
 	font-family: 'Kreon', serif;
-	color:#FFF;
 }
 
 body
@@ -102,11 +108,11 @@ body
 	transform-origin: left top 0;
 }
 .feed,#info{
-padding:2px 2%;
-box-shadow:  inset 0px 15px 5px -10px rgba(50, 50, 50, 0.75);
-box-shadow:0 -3px 5px -3px rgba(0,0,0,0.75);
+	padding:2px 2%;
+	box-shadow:  inset 0px 15px 5px -10px rgba(50, 50, 50, 0.75);
+	box-shadow:0 -3px 5px -3px rgba(0,0,0,0.75);
 }
-.frame, #info, button,.frame1, .frame2,.feed{
+.frame, #info, button,.frame1, .frame2,.feed a,.feed{
 	font-family:'Ubuntu Condensed' , 'Sans-Serif';
 }
 

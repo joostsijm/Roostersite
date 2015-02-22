@@ -21,7 +21,7 @@
 		  ga('send', 'pageview');
 
 		</script>
-		<?php
+		<?php	
 			date_default_timezone_set('Europe/Amsterdam');
 			$date=date("W");
 			if(isset($_POST['tabs']))
@@ -34,10 +34,8 @@
 				}
 		?>
 		
-		<div id="logo">
-			<h1>
+		<div class="logo">
 				Rooster
-			</h1>
 		</div>
 		
 		<div class="head1">
@@ -52,19 +50,21 @@
 		<div style="padding:5% 0% 30% 2.5%">
 			<?php 
 				if($stab==1)
-					/* info */
-					?>
+					{
+						/* info */
+						?>
 						<p>Deze site, Gemaakt door Joost Sijm.<br>Is er om op een snelle manier het rooster van de klas IO1A van het Horizoncollege te kunnen bekijken</p>
 						<p>Er zijn verder geen plannen voor uitbreiding van deze website</p>
 						<p>Als je interesse heb in de code achter deze site.<br>kan je deze vind op <a href='https://github.com/joostsijm/Roostersite'>Github</a></p>
-					<?php
+						<?php
+					}
 				if($stab==2)
 				{
-						/* contact */
+					/* contact */
 					?>
-						<p>Als je opmerking of verbeterpunten heb<br>Kan je die mailen naar: <a href='mailto:joostsijm@gmail.com'>joostsijm@gmail.com</a>.</p>
+					<p>Als je opmerking of verbeterpunten heb<br>Kan je die mailen naar: <a href='mailto:joostsijm@gmail.com'>joostsijm@gmail.com</a>.</p>
 					<?php
-					}
+				}
 			?>
 		</div>
 	</body>

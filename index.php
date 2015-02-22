@@ -3,37 +3,26 @@
 	<head>
 		<title>Rooster | 
 		
-		<?php
-		if(isset($_POST['week']))
+			<?php
+			if(isset($_POST['week']))
 			{
 				if($_POST['week'] == -1)
-					{
-					echo "Vorige week";
-					}
+				echo "Vorige week";
 				if($_POST['week'] == 0)
-					{
-					echo "Deze week";
-					}
+				echo "Deze week";
 				if($_POST['week'] == 1)
-					{
-					echo "Volgende week";
-					}
+				echo "Volgende week";
 				if($_POST['week'] == 2)
-					{
-					echo "2 Weken";
-					}
+				echo "2 Weken";
 				if($_POST['week'] == 3)
-					{
-					echo "3 Weken";
-					}
+				echo "3 Weken";
 			}
-		else
-			{
+			else
 				echo "Horizon";
-			}
-		?>
+			?>
+
+		</title>	
 		
-		</title>		
 		<Meta charset=utf-8>
 		<meta name=description content="">
 		<link rel=stylesheet href="rooster.css">
@@ -41,8 +30,9 @@
 		<link href="http://fonts.googleapis.com/css?family=Kreon" rel="stylesheet" type="text/css" />
 		<link href="http://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet" type="text/css" />
 		<script type="text/javascript">
-			function popup(){
-			  cuteLittleWindow = window.open("popup.php", "littleWindow", "location=no,width=800,height=500"); 
+			function popup()
+			{
+				cuteLittleWindow = window.open("popup.php", "littleWindow", "location=no,width=800,height=500"); 
 			}
 		</script>
 	</head>
@@ -62,120 +52,120 @@
 			$date=date("W");
 
 			if(isset($_POST['home']))
-				{
-					unset($_COOKIE['lokaat']);
-					unset($_COOKIE['afdeling']);
-					unset($_COOKIE['klas']);
-					$_GET['klas']=-666;
-					$_POST['afdeling']=-666;
-				}
-			
+			{
+				unset($_COOKIE['lokaat']);
+				unset($_COOKIE['afdeling']);
+				unset($_COOKIE['klas']);
+				$_GET['klas']=-666;
+				$_POST['afdeling']=-666;
+			}
+		
 			if(isset($_GET['week']))
+			{
+				$stab=$_GET['week'];
+				$date=date("W") + $_GET['week'];
+				if($date > 52)
+				{
+					$date=$date - 52;
+				}
+				if($date < 10)
+				{
+					$date="0" . $date;
+				}
+			setcookie("date", $date, time()+60*60*24*30*12);
+			}
+			else
+			{
+			$stab="0";
+			}
+				
+			if(isset($_COOKIE['week']))
+			{
+				if(isset($_GET['week']))
 				{
 					$stab=$_GET['week'];
 					$date=date("W") + $_GET['week'];
 					if($date > 52)
-						{
-							$date=$date - 52;
-						}
+					{
+						$date=$date - 52;
+					}
 					if($date < 10)
-						{
-							$date="0" . $date;
-						}
-				setcookie("date", $date, time()+60*60*24*30*12);
+					{
+						$date="0" . $date;
+					}
+					setcookie("date", $date, time()+60*60*24*30*12);	
 				}
-			else
+				else
 				{
-				$stab="0";
+					$date=$_COOKIE['week'];
 				}
-				
-			if(isset($_COOKIE['week']))
-				{
-					if(isset($_GET['week']))
-						{
-							$stab=$_GET['week'];
-							$date=date("W") + $_GET['week'];
-							if($date > 52)
-								{
-									$date=$date - 52;
-								}
-							if($date < 10)
-								{
-									$date="0" . $date;
-								}
-							setcookie("date", $date, time()+60*60*24*30*12);	
-						}
-					else
-						{
-							$date=$_COOKIE['week'];
-						}
-				}
+			}
 				
 			if(isset($_GET['klas']))
+			{
+				$klas=$_GET['klas'];
+			}
+			else
+			{
+				$klas="-666";
+			}
+			if(isset($_COOKIE['klas']))
+			{
+				if(isset($_GET['klas']))
 				{
 					$klas=$_GET['klas'];
 				}
-			else
+				else
 				{
-					$klas="-666";
+					$klas=$_COOKIE['klas'];
 				}
-			if(isset($_COOKIE['klas']))
-				{
-					if(isset($_GET['klas']))
-						{
-							$klas=$_GET['klas'];
-						}
-					else
-						{
-							$klas=$_COOKIE['klas'];
-						}
-				}
+			}
 				
 			if(isset($_POST['lokaat']))
+			{
+				$lokaat=$_POST['lokaat'];
+				unset($_COOKIE['afdeling']);
+			}
+			else
+			{
+				$lokaat="-666";
+			}
+			if(isset($_COOKIE['lokaat']))
+			{
+				if(isset($_POST['lokaat']))
 				{
 					$lokaat=$_POST['lokaat'];
-					unset($_COOKIE['afdeling']);
+					unset($_COOKIE['klas']);
+					$klas="-666";
 				}
-			else
+				else
 				{
-					$lokaat="-666";
+					$lokaat=$_COOKIE['lokaat'];					
 				}
-			if(isset($_COOKIE['lokaat']))
-				{
-					if(isset($_POST['lokaat']))
-						{
-							$lokaat=$_POST['lokaat'];
-							unset($_COOKIE['klas']);
-							$klas="-666";
-						}
-					else
-						{
-							$lokaat=$_COOKIE['lokaat'];					
-						}
-				}
+			}
 				
 			if(isset($_POST['afdeling']))
-				{
-					setcookie("afdeling", $_POST['afdeling'], time()+60*60*24*30*12);
-					$afdeling=$_POST['afdeling'];
-				}
+			{
+				setcookie("afdeling", $_POST['afdeling'], time()+60*60*24*30*12);
+				$afdeling=$_POST['afdeling'];
+			}
 			else
-				{
-					$afdeling="-666";
-				}
+			{
+				$afdeling="-666";
+			}
 			if(isset($_COOKIE['afdeling']))
+			{
+				if(isset($_POST['afdeling']))
 				{
-					if(isset($_POST['afdeling']))
-						{
-							$afdeling=$_POST['afdeling'];
-							unset($_COOKIE['klas']);
-							$klas="-666";
-						}
-					else
-						{
-							$afdeling=$_COOKIE['afdeling'];					
-						}
+					$afdeling=$_POST['afdeling'];
+					unset($_COOKIE['klas']);
+					$klas="-666";
 				}
+				else
+				{
+					$afdeling=$_COOKIE['afdeling'];					
+				}
+			}
 			if($lokaat !=-666 )
 			{setcookie("lokaat", $lokaat, time()+60*60*24*30*12);}
 			if($afdeling !=-666)
@@ -184,10 +174,10 @@
 			{setcookie("klas", $klas, time()+60*60*24*30*12);}
 				
 			if($afdeling  !=-666 and $lokaat !=-666)
-				{
-					$sklas = "";
-					include("/horizon/" . $lokaat . "/" . $afdeling . "/head.php");
-				}
+			{
+				$sklas = "";
+				include("/horizon/" . $lokaat . "/" . $afdeling . "/head.php");
+			}
 		?>	
 		<div>
 			<div class="logo" >
@@ -203,11 +193,11 @@
 					<select style="width:120px" name='lokaat' class='drop' onchange='this.form.submit()'>
 						<?php
 							if($lokaat==-666)
-								{
-									?>
-										<option <?php if ($lokaat == '-666') { ?>selected <?php }; ?>value="-666">locatie</option>
-									<?php
-								}
+							{
+								?>
+									<option <?php if ($lokaat == '-666') { ?>selected <?php }; ?>value="-666">locatie</option>
+								<?php
+							}
 						?>
 						<option <?php if ($lokaat == 'hrn') { ?>selected <?php }; ?>value="hrn">Hoorn</option>
 						<option <?php if ($lokaat == 'alk') { ?>selected <?php }; ?>value="alk">Alkmaar</option>
@@ -221,21 +211,21 @@
 					<select style="width:120px" name='afdeling' class='drop' onchange='this.form.submit()'>
 						<?php
 							if($lokaat==-666)
+							{
+								?>
+									<option <?php if ($afdeling == '-666') { ?>selected <?php }; ?>value="-666">afdeling</option>
+								<?php
+							}
+							else
+							{
+								if($afdeling==-666)
 								{
 									?>
 										<option <?php if ($afdeling == '-666') { ?>selected <?php }; ?>value="-666">afdeling</option>
 									<?php
 								}
-							else
-								{
-									if($afdeling==-666)
-										{
-											?>
-												<option <?php if ($afdeling == '-666') { ?>selected <?php }; ?>value="-666">afdeling</option>
-											<?php
-										}
-									include("/horizon/" . $lokaat . "/afdelingen.php");
-								}
+								include("/horizon/" . $lokaat . "/afdelingen.php");
+							}
 						?>
 					</select>
 				</form>
@@ -255,16 +245,16 @@
 						<select style="width:80px" id="klas" name='klas' class='drop' onchange='this.form.submit()'>
 							<?php
 							if ($klas ==-666)
-								{
-									echo "<option selected value='0'>Klas</option>";
-								}
+							{
+								echo "<option selected value='0'>Klas</option>";
+							}
 							if($lokaat  !=-666)
+							{
+								if($afdeling !=-666)
 								{
-									if($afdeling !=-666)
-										{
-											include("/horizon/" . $lokaat . "/" . $afdeling . "/klas.php"); 
-										}
+									include("/horizon/" . $lokaat . "/" . $afdeling . "/klas.php"); 
 								}
+							}
 							?>
 						</select>
 					</form>
@@ -293,6 +283,7 @@
 				</ul>
 			</form>
 		</div>
+		<div class="shad"></div>
 		<div class="frame">
 			<?php
 				if ($klas !=-666)
