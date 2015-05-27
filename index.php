@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<title>Rooster | 
-		
 			<?php
 			if(isset($_POST['week']))
 			{
@@ -21,8 +20,7 @@
 				echo "Horizon";
 			?>
 
-		</title>	
-		
+		</title>
 		<Meta charset=utf-8>
 		<meta name=description content="">
 		<link rel=stylesheet href="rooster.css">
@@ -176,7 +174,7 @@
 			if($afdeling  !=-666 and $lokaat !=-666)
 			{
 				$sklas = "";
-				include("/horizon/" . $lokaat . "/" . $afdeling . "/head.php");
+				include("horizon/" . $lokaat . "/" . $afdeling . "/head.php");
 			}
 		?>	
 		<div>
@@ -224,7 +222,7 @@
 										<option <?php if ($afdeling == '-666') { ?>selected <?php }; ?>value="-666">afdeling</option>
 									<?php
 								}
-								include("/horizon/" . $lokaat . "/afdelingen.php");
+								include("horizon/" . $lokaat . "/afdelingen.php");
 							}
 						?>
 					</select>
@@ -252,7 +250,7 @@
 							{
 								if($afdeling !=-666)
 								{
-									include("/horizon/" . $lokaat . "/" . $afdeling . "/klas.php"); 
+									include("horizon/" . $lokaat . "/" . $afdeling . "/klas.php"); 
 								}
 							}
 							?>
@@ -289,7 +287,7 @@
 			<?php
 				if ($klas !=-666)
 					{
-					include("/horizon/" . $lokaat . "/" . $afdeling . "/rooster.php"); 
+					include("horizon/" . $lokaat . "/" . $afdeling . "/rooster.php"); 
 					}
 				else
 					{
