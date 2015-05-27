@@ -277,7 +277,8 @@
 							}
 						else
 							{
-							echo "<li>&nbsp;</li>";
+							//echo "<li>&nbsp;</li>";
+                            echo "<div class='frame 'style='font-size:1em;'>Nog niet alle klassen zijn beschikbaar</div>";
 							}
 					?>
 				</ul>
